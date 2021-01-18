@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'store.apps.StoreConfig',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'NAME': 'books_db',
         'USER': 'books_user',
         'PASSWORD': '123',
-        'HOST': '172.18.144.1',
+        'HOST': '172.22.144.1',
         'PORT': '54324',
     }
 }
@@ -123,3 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
